@@ -1,0 +1,151 @@
+$side-width: 600px;
+.furniture-main {
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	.scroll-motherfucker {
+		position: fixed;
+		bottom: 40px;
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		z-index: 5;
+		.outer-scroll {
+			width: 20px;
+			height: 40px;
+			border-radius: 50px;
+			border: 1px solid white;
+			position: relative;
+		}
+		.inner-scroll {
+			position: absolute;
+			border-radius: 50px;
+			background-color: white;
+			width: 14px;
+			height: 14px;
+			left: 3px;
+			top: 3px;
+			animation: scroll 2s infinite;
+			@keyframes scroll {
+				0% {
+					opacity: 0;
+					transform: translateY(0px);
+				}
+				50% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+			}
+		}
+	}
+
+	.left-sidebar {
+		width: $side-width;
+		padding: 140px 40px 20px;
+		margin-top: 80px;
+		box-sizing: border-box;
+		h1 {
+			font-family: Cinzel;
+			font-size: 3.6rem;
+			margin-bottom: 40px;
+		}
+		p {
+			font-size: 1.6rem;
+			line-height: 1.6em;
+			letter-spacing: 2px;
+		}
+	}
+	.image-fixed {
+		position: fixed;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: calc(100vw - #{$side-width});
+	}
+	.image-fixed-bg {
+		transition: 0.8s;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+	}
+	.article-1 {
+		background: url(/img/objects/chair-inner.jpg) no-repeat center center;
+		background-size: cover;
+	}
+	.article-2 {
+		background: url(/img/objects/room-for-reading01.jpg) no-repeat center center;
+		background-size: cover;
+	}
+	.article-3 {
+		background: url(/img/objects/motherfucking-arch-chairs.jpg) no-repeat center center;
+		background-size: cover;
+	}
+	.article-4 {
+		background: url(/img/objects/lololol-room.jpg) no-repeat center center;
+		background-size: cover;
+	}
+	.show-image-article {
+		opacity: 1;
+	}
+	.top-menu {
+		height: 100px;
+		padding: 20px 40px;
+		box-sizing: border-box;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: $side-width;
+		background: linear-gradient(rgba(white, 1) 0%, rgba(white, 1) 50%, rgba(white, 0.9) 100%);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.hamburger-wrapper {
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.hamburger-menu {
+		position: relative;
+		width: 40px;
+		height: 5px;
+		border-radius: 4px;
+		background-color: rgba(black, 0.3);
+	}
+	.hamburger-menu::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		background-color: rgba(black, 0.3);
+		top: -10px;
+	}
+	.hamburger-menu::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		background-color: rgba(black, 0.3);
+		top: 10px;
+	}
+	.top-sidebar-icon {
+		height: 60px;
+		width: auto;
+	}
+
+
+	.chair-or-stuff {
+		margin-bottom: 300px;
+	}
+}

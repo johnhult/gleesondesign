@@ -1,0 +1,23 @@
+{
+  "name": "gleeson-design",
+  "version": "1.0.0",
+  "description": "Gleeson Design Website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnhult/gleesondesign.git"
+  },
+  "keywords": [
+    "design",
+    "furniture"
+  ],
+  "author": "John Hult",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnhult/gleesondesign/issues"
+  },
+  "homepage": "https://github.com/johnhult/gleesondesign"
+}
