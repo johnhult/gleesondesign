@@ -3,6 +3,13 @@ html, body {
 	padding: 0;
 	font-size: 62.5%;
 	font-family: Arimo;
+	height: 100%;
+}
+body {
+	background-color: lighten(black, 30%);
+	background-color: white;
+	perspective: 1000px;
+	transform-style: preserve-3d;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, ul, li, a {
@@ -10,7 +17,17 @@ h1, h2, h3, h4, h5, h6, p, span, ul, li, a {
 	padding: 0;
 }
 
+h1 {
+	font-family: Raleway;
+}
+
 a {
 	text-decoration: none;
-	color: black;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }

@@ -2,273 +2,403 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 62.5%;
-  font-family: Arimo; }
+  font-family: Arimo;
+  height: 100%; }
+
+body {
+  background-color: #4d4d4d;
+  background-color: white;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
 
 h1, h2, h3, h4, h5, h6, p, span, ul, li, a {
   margin: 0;
   padding: 0; }
 
+h1 {
+  font-family: Raleway; }
+
 a {
   text-decoration: none;
-  color: black; }
+  color: inherit; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.hamburger-wrapper {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  border-radius: 50px; }
+
+.hamburger-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.5); }
+  .hamburger-wrapper:hover .hamburger-menu {
+    background-color: #FFC639; }
+  .hamburger-wrapper:hover .hamburger-menu::before {
+    background-color: #FFC639; }
+  .hamburger-wrapper:hover .hamburger-menu::after {
+    background-color: #FFC639; }
+
+.hamburger-menu {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  position: relative;
+  width: 30px;
+  height: 5px;
+  border-radius: 4px;
+  background-color: #FFC639; }
+
+.hamburger-menu::before {
+  content: '';
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #FFC639;
+  top: -10px; }
+
+.hamburger-menu::after {
+  content: '';
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #FFC639;
+  top: 10px; }
+
+.all-content {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+  height: 100%; }
+
+.outer-wrapper {
+  position: relative;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0) scale3d(1, 1, 1);
+          transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0) scale3d(1, 1, 1);
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%; }
+
+.main-content {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  position: relative;
+  overflow-y: scroll;
+  height: 100%;
+  z-index: 0; }
+
+.menu-open .outer-wrapper {
+  opacity: 0; }
+  @media screen and (min-width: 400px) {
+    .menu-open .outer-wrapper {
+      opacity: 1;
+      -webkit-transform: translate3d(20%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+              transform: translate3d(20%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9); } }
+  @media screen and (min-width: 800px) {
+    .menu-open .outer-wrapper {
+      opacity: 1;
+      -webkit-transform: translate3d(10%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+              transform: translate3d(10%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9); } }
+  @media screen and (min-width: 1000px) {
+    .menu-open .outer-wrapper {
+      opacity: 1;
+      -webkit-transform: translate3d(0%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+              transform: translate3d(0%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9); } }
+.menu-open .main-content {
+  box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer; }
+.menu-open .main-content:hover {
+  box-shadow: 5px 5px 30px 0px rgba(255, 198, 57, 0.4); }
+.menu-open .hamburger-menu {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg); }
+.menu-open .hamburger-menu::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+.menu-open .hamburger-menu::before {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+.menu-open .hidden-menu {
+  -webkit-transition: opacity 0.6s, visibility 0s, -webkit-transform 0.5s;
+  transition: opacity 0.6s, visibility 0s, -webkit-transform 0.5s;
+  transition: opacity 0.6s, transform 0.5s, visibility 0s;
+  transition: opacity 0.6s, transform 0.5s, visibility 0s, -webkit-transform 0.5s;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+.hidden-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f3efe0;
+  z-index: 4;
+  visibility: hidden;
+  width: 400px;
+  max-width: 100%;
+  background-color: white;
+  height: 100%;
+  -webkit-transition: opacity 0.2s, visibility 0.2s, -webkit-transform 0.5s;
+  transition: opacity 0.2s, visibility 0.2s, -webkit-transform 0.5s;
+  transition: transform 0.5s, opacity 0.2s, visibility 0.2s;
+  transition: transform 0.5s, opacity 0.2s, visibility 0.2s, -webkit-transform 0.5s;
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+  font-size: 2.6rem;
+  line-height: 2em;
+  font-family: Cinzel; }
+  .hidden-menu .svg {
+    margin-right: 30px;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    visibility: none; }
+    .hidden-menu .svg * {
+      fill: #FFC639; }
+  .hidden-menu li {
+    padding: 20px 0; }
+  .hidden-menu a {
+    -webkit-transition: 0.4s;
+    transition: 0.4s; }
+  .hidden-menu a:hover {
+    color: #FFC639; }
 
 .two-page {
   position: relative;
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   overflow: hidden;
-  -webkit-perspective: 1000px;
-          perspective: 1000px; }
-  .two-page .half-two-wrapper {
-    -webkit-transition: 2s;
-    transition: 2s;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    width: calc(100% - 120px);
-    height: calc(100% - 120px);
-    margin: 60px auto 60px;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transform: translateZ(-100px);
-            transform: translateZ(-100px); }
-  .two-page .fadeback {
-    opacity: 1;
-    pointer-events: initial;
-    -webkit-transform: translateZ(0px);
-            transform: translateZ(0px); }
+  background-color: white; }
   .two-page .half-two {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
-            flex: 1; }
-  .two-page .mid-logo {
-    width: 100%;
-    height: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    z-index: 5;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    box-sizing: border-box;
-    position: absolute;
-    pointer-events: none; }
-  .two-page .logo-wrapper {
-    pointer-events: initial;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-color: white;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    box-shadow: inset 2px 2px 6px 0px rgba(0, 0, 0, 0.6); }
-    .two-page .logo-wrapper img {
-      width: 200px;
-      height: auto; }
-  .two-page .furniture, .two-page .interior {
+            flex: 1;
+    height: 100vh; }
+  .two-page .furniture, .two-page .architecture {
     overflow: hidden;
     position: relative;
     text-align: center; }
-    .two-page .furniture h1, .two-page .interior h1 {
-      pointer-events: none;
+    .two-page .furniture h1, .two-page .architecture h1 {
+      text-transform: uppercase;
+      font-family: Raleway;
+      font-size: 16rem;
+      font-weight: 300;
+      letter-spacing: 20px;
+      -webkit-transition: 0.4s;
+      transition: 0.4s; }
+    .two-page .furniture h2, .two-page .architecture h2 {
       -webkit-transition: 0.4s;
       transition: 0.4s;
-      bottom: 20px;
-      left: 20px;
-      position: absolute;
-      z-index: 4;
-      text-transform: uppercase;
-      font-family: Cinzel;
-      font-size: 3rem;
-      font-weight: 300;
-      letter-spacing: 10px;
-      color: rgba(0, 0, 0, 0.5); }
-  .two-page .interior {
-    text-align: right; }
-    .two-page .interior h1 {
-      right: 20px;
-      left: 0; }
-  .two-page .furniture:hover .inner-furniture {
-    -webkit-transition: 2s;
-    transition: 2s;
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05); }
-  .two-page .furniture:hover h1 {
+      letter-spacing: 4px;
+      font-size: 1.6rem; }
+  .two-page .front-header-wrapper {
+    position: absolute;
+    top: 38vh;
+    z-index: 3;
+    pointer-events: none;
     color: rgba(0, 0, 0, 0.6); }
-  .two-page .inner-furniture {
-    -webkit-transition: 1s;
-    transition: 1s;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9)), url(/img/objects/chair-inner.jpg) center center no-repeat;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9)), url(/img/objects/chair-inner.jpg) center center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%; }
-  .two-page .interior:hover .inner-interior {
-    -webkit-transition: 2s;
-    transition: 2s;
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05); }
-  .two-page .interior:hover h1 {
-    color: rgba(0, 0, 0, 0.6); }
-  .two-page .inner-interior {
-    -webkit-transition: 1s;
-    transition: 1s;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9)), url(/img/objects/room-for-reading01.jpg) center center no-repeat;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9)), url(/img/objects/room-for-reading01.jpg) center center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%; }
-  .two-page .about-me-lp-link {
-    position: absolute;
-    bottom: 20px;
-    right: 60px;
+  .two-page .furniture h1 {
+    margin-right: -20px; }
+  .two-page .furniture h2 {
+    margin-right: 10px; }
+  .two-page .furniture .front-header-wrapper {
+    text-align: right;
+    right: 40px; }
+  .two-page .furniture .front-header-seperator {
+    margin: -10px 10px 20px 0px; }
+  .two-page .architecture h1 {
+    margin-left: 10px; }
+  .two-page .architecture h2 {
+    margin-left: 10px; }
+  .two-page .architecture .front-header-wrapper {
+    text-align: left;
+    left: 40px; }
+  .two-page .architecture .front-header-seperator {
+    margin: -10px 0px 20px 10px; }
+  .two-page .front-header-seperator {
     display: inline-block;
-    padding: 3px; }
-    .two-page .about-me-lp-link span {
-      -webkit-transition: 0.2s;
-      transition: 0.2s;
-      font-family: Cinzel;
-      font-size: 2rem;
-      color: #1D454C;
-      opacity: 0.3; }
-  .two-page .about-me-lp-link:hover span {
-    opacity: 0.8; }
+    border-radius: 2px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    width: 500px;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.6); }
+  .two-page .furniture:hover .front-header-wrapper, .two-page .architecture:hover .front-header-wrapper {
+    color: rgba(255, 255, 255, 0.9); }
+  .two-page .furniture:hover .inner-overlay-fade, .two-page .architecture:hover .inner-overlay-fade {
+    opacity: 0.5; }
+  .two-page .furniture:hover .front-header-seperator, .two-page .architecture:hover .front-header-seperator {
+    background-color: rgba(255, 255, 255, 0.9); }
+  .two-page .inner-furniture-link, .two-page .inner-architecture-link {
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .two-page .inner-overlay-fade {
+    pointer-events: none;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0; }
+  .two-page .inner-furniture, .two-page .inner-architecture {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 1s;
+    transition: 1s;
+    cursor: pointer; }
+  .two-page .inner-furniture {
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/img/furniture/openarch/3.jpg) center center no-repeat;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/img/furniture/openarch/3.jpg) center center no-repeat;
+    background-size: cover; }
+  .two-page .inner-architecture {
+    background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/img/architecture/satellit/1.jpg) 20% center no-repeat;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/img/architecture/satellit/1.jpg) 20% center no-repeat;
+    background-size: cover; }
 
-.furniture-main {
-  overflow-x: hidden;
-  overflow-y: auto; }
-  .furniture-main .scroll-motherfucker {
+.furniture-main, .architecture-main {
+  width: 100vw;
+  background-color: white; }
+  .furniture-main .bg-logo-wrapper, .architecture-main .bg-logo-wrapper {
     position: fixed;
-    bottom: 40px;
-    width: 100vw;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    z-index: 5; }
-    .furniture-main .scroll-motherfucker .outer-scroll {
-      width: 20px;
-      height: 40px;
-      border-radius: 50px;
-      border: 1px solid white;
-      position: relative; }
-    .furniture-main .scroll-motherfucker .inner-scroll {
-      position: absolute;
-      border-radius: 50px;
-      background-color: white;
-      width: 14px;
-      height: 14px;
-      left: 3px;
-      top: 3px;
-      -webkit-animation: scroll 2s infinite;
-              animation: scroll 2s infinite; }
-@-webkit-keyframes scroll {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px); }
-  50% {
-    opacity: 1; }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px); } }
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px); }
-  50% {
-    opacity: 1; }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px); } }
-  .furniture-main .left-sidebar {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 400px;
+    overflow: hidden; }
+    @media screen and (max-width: 600px) {
+      .furniture-main .bg-logo-wrapper, .architecture-main .bg-logo-wrapper {
+        display: none; } }
+  .furniture-main .bg-logo, .architecture-main .bg-logo {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 0px;
+    top: -100px; }
+    .furniture-main .bg-logo *, .architecture-main .bg-logo * {
+      fill: rgba(0, 0, 0, 0.03); }
+  .furniture-main .left-sidebar, .architecture-main .left-sidebar {
     width: 600px;
-    padding: 140px 40px 20px;
-    margin-top: 80px;
-    box-sizing: border-box; }
-    .furniture-main .left-sidebar h1 {
-      font-family: Cinzel;
+    padding: 140px 40px 20px 40px;
+    box-sizing: border-box;
+    border-right: 1px solid #e6e6e6; }
+    .furniture-main .left-sidebar h1, .architecture-main .left-sidebar h1 {
       font-size: 3.6rem;
-      margin-bottom: 40px; }
-    .furniture-main .left-sidebar p {
+      color: #606060;
+      text-transform: uppercase; }
+    .furniture-main .left-sidebar p, .architecture-main .left-sidebar p {
       font-size: 1.6rem;
       line-height: 1.6em;
-      letter-spacing: 2px; }
-  .furniture-main .image-fixed {
+      letter-spacing: 2px;
+      margin-bottom: 30px; }
+  .furniture-main .article-seperator, .architecture-main .article-seperator {
+    height: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: #FFC639; }
+  .furniture-main .image-preview, .architecture-main .image-preview {
+    pointer-events: none;
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     width: calc(100vw - 600px); }
-  .furniture-main .image-fixed-bg {
-    -webkit-transition: 0.8s;
-    transition: 0.8s;
+  .furniture-main .art-image, .architecture-main .art-image {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; }
+  .furniture-main .image-content, .architecture-main .image-content {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0; }
-  .furniture-main .article-1 {
-    background: url(/img/objects/chair-inner.jpg) no-repeat center center;
-    background-size: cover; }
-  .furniture-main .article-2 {
-    background: url(/img/objects/room-for-reading01.jpg) no-repeat center center;
-    background-size: cover; }
-  .furniture-main .article-3 {
-    background: url(/img/objects/motherfucking-arch-chairs.jpg) no-repeat center center;
-    background-size: cover; }
-  .furniture-main .article-4 {
-    background: url(/img/objects/lololol-room.jpg) no-repeat center center;
-    background-size: cover; }
-  .furniture-main .show-image-article {
+  .furniture-main .shown-img, .architecture-main .shown-img {
     opacity: 1; }
-  .furniture-main .top-menu {
-    height: 100px;
-    padding: 20px 40px;
-    box-sizing: border-box;
-    position: fixed;
-    left: 0;
+  .furniture-main .furniture-images .art1-image-content, .architecture-main .furniture-images .art1-image-content {
+    background: url(/img/furniture/openarch/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .furniture-images .art2-image-content, .architecture-main .furniture-images .art2-image-content {
+    background: url(/img/furniture/frametable/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .furniture-images .art3-image-content, .architecture-main .furniture-images .art3-image-content {
+    background: url(/img/furniture/extrachair/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .furniture-images .art4-image-content, .architecture-main .furniture-images .art4-image-content {
+    background: url(/img/furniture/hangle/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .show-image-article, .architecture-main .show-image-article {
+    opacity: 1; }
+  .furniture-main .left-step-wrapper, .architecture-main .left-step-wrapper {
+    z-index: 3;
+    position: absolute;
+    height: 100%;
     top: 0;
-    width: 600px;
-    background: -webkit-linear-gradient(white 0%, white 50%, rgba(255, 255, 255, 0.9) 100%);
-    background: linear-gradient(white 0%, white 50%, rgba(255, 255, 255, 0.9) 100%);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -277,14 +407,19 @@ a {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-  .furniture-main .hamburger-wrapper {
-    width: 40px;
-    height: 40px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  .furniture-main .left-step-button, .furniture-main .right-step-button, .architecture-main .left-step-button, .architecture-main .right-step-button {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    opacity: 0.4;
+    position: relative;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #FFC639;
     cursor: pointer;
+    pointer-events: initial;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -297,30 +432,62 @@ a {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
-  .furniture-main .hamburger-menu {
-    position: relative;
-    width: 40px;
-    height: 5px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.3); }
-  .furniture-main .hamburger-menu::before {
-    content: '';
+    .furniture-main .left-step-button svg, .furniture-main .right-step-button svg, .architecture-main .left-step-button svg, .architecture-main .right-step-button svg {
+      user-drag: none;
+      pointer-events: none;
+      width: 20px;
+      height: 20px; }
+      .furniture-main .left-step-button svg *, .furniture-main .right-step-button svg *, .architecture-main .left-step-button svg *, .architecture-main .right-step-button svg * {
+        fill: #FFC639; }
+  .furniture-main .left-step-image, .furniture-main .right-step-image, .architecture-main .left-step-image, .architecture-main .right-step-image {
     position: absolute;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
     width: 100%;
     height: 100%;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: -10px; }
-  .furniture-main .hamburger-menu::after {
-    content: '';
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 100px;
+    background-color: red;
+    pointer-events: none; }
+  .furniture-main .left-step-button, .architecture-main .left-step-button {
+    margin-left: 20px; }
+    .furniture-main .left-step-button svg, .architecture-main .left-step-button svg {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
+  .furniture-main .left-step-button:hover, .architecture-main .left-step-button:hover {
+    opacity: 1; }
+    .furniture-main .left-step-button:hover .left-step-image, .architecture-main .left-step-button:hover .left-step-image {
+      opacity: 1;
+      -webkit-transform: translateX(80px) scale(1.4);
+              transform: translateX(80px) scale(1.4); }
+  .furniture-main .right-step-wrapper, .architecture-main .right-step-wrapper {
+    z-index: 3;
     position: absolute;
-    width: 100%;
+    right: 0;
+    top: 0;
     height: 100%;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: 10px; }
-  .furniture-main .top-sidebar-icon {
-    height: 60px;
-    width: auto; }
-  .furniture-main .chair-or-stuff {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  .furniture-main .right-step-button, .architecture-main .right-step-button {
+    margin-right: 20px; }
+    .furniture-main .right-step-button svg, .architecture-main .right-step-button svg {
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
+  .furniture-main .right-step-button:hover, .architecture-main .right-step-button:hover {
+    opacity: 1; }
+    .furniture-main .right-step-button:hover .right-step-image, .architecture-main .right-step-button:hover .right-step-image {
+      opacity: 1;
+      -webkit-transform: translateX(-80px) scale(1.4);
+              transform: translateX(-80px) scale(1.4); }
+  .furniture-main .chair-or-stuff, .architecture-main .chair-or-stuff {
     margin-bottom: 300px; }

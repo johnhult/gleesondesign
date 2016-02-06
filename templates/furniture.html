@@ -1,0 +1,40 @@
+<section class="furniture-main">
+	<div class="bg-logo-wrapper">
+		<img class="bg-logo svg" src="img/icons/gd-logo-icon.svg">
+	</div>
+	<aside class="left-sidebar">
+		{{#each furnitureArticle}}
+			<article class="chair-or-stuff">
+				{{{articleName}}}
+				<div class="article-seperator"></div>
+				{{{articleText}}}
+			</article>
+		{{/each}}
+	</aside>
+	<section class="image-preview furniture-images">
+		<div class="left-step-wrapper">
+			<div class="left-step-button">
+				<img class="svg" src="img/icons/arrow-pointer.svg">
+				<div class="left-step-image"></div>
+			</div>
+		</div>
+		<div class="art1-images art-image">
+			<div class="art1-image-content image-content shown-img"></div>
+		</div>
+		<div class="art2-images art-image">
+			<div class="art2-image-content image-content"></div>
+		</div>
+		<div class="art3-images art-image">
+			<div class="art3-image-content image-content"></div>
+		</div>
+		<div class="art4-images art-image">
+			<div class="art4-image-content image-content"></div>			
+		</div>
+		<div class="right-step-wrapper">
+			<div class="right-step-button">
+				<img class="svg" src="img/icons/arrow-pointer.svg">
+				<div class="right-step-image"></div>
+			</div>
+		</div>
+	</section>
+</section>

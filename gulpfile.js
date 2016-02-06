@@ -5,15 +5,26 @@ require('es6-promise').polyfill();
 
 // Adding packages
 //==================================================
-var 	gulp           = require('gulp'),
-      sass           = require('gulp-ruby-sass'),
-      autoprefixer   = require('gulp-autoprefixer'),
-      minifycss      = require('gulp-minify-css'),
-      rename         = require('gulp-rename');
+const gulp             = require('gulp'),
+      sass             = require('gulp-ruby-sass'),
+      autoprefixer     = require('gulp-autoprefixer'),
+      minifycss        = require('gulp-minify-css'),
+      rename           = require('gulp-rename');
+      wrap             = require('gulp-wrap');
+      declare          = require('gulp-declare');
+      concat           = require('gulp-concat');
+      gulpHandlebars   = require('gulp-handlebars');
+      handlebars       = require('handlebars');
+      markdown         = require('gulp-markdown');
+      fc2json          = require('gulp-file-contents-to-json');
+
+
 
 // Paths
 //===========================
-var paths = { 
+var paths = {
+  markdown : {furniture : 'posts/furniture/*.md',
+              architecture : 'posts/architecture/*.md'}
 };
 
 // Adding tasks
@@ -58,17 +69,75 @@ gulp.task('styles', function() {
   .pipe(gulp.dest('build/css/'));
 });
 
+// Handlebars
+gulp.task('templates', function(){
+  gulp.src('templates/*.html')
+    .pipe(gulpHandlebars({
+      handlebars: require('handlebars')
+    }))
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'GD.templates',
+      noRedeclare: true, // Avoid duplicate declarations
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/scripts/'));
+});
+
+// JS
+gulp.task('scripts', function() {
+  gulp.src('scripts/*.js')
+    .pipe(gulp.dest('build/scripts/'));
+});
+
+// Markdown posts to HTML
+gulp.task('markdown', function() {
+  console.log(paths.markdown.furniture);
+  gulp.src(paths.markdown.furniture)
+    .pipe(markdown())
+    .pipe(gulp.dest('build/posts/furniture'));
+  console.log(paths.markdown.architecture);
+  gulp.src(paths.markdown.architecture)
+    .pipe(markdown())
+    .pipe(gulp.dest('build/posts/architecture'));
+});
+
+// Create a json for posts
+gulp.task('create-json-blob', function() {
+  gulp.src('build/posts/furniture/*.html')
+    .pipe(fc2json('furniture.json'), {extname: false})
+    .pipe(gulp.dest('build/posts/json/'));
+    gulp.src('build/posts/architecture/*.html')
+    .pipe(fc2json('architecture.json'), {extname: false})
+    .pipe(gulp.dest('build/posts/json/'));
+});
 
 //Watch
 gulp.task('watch', function() {
   gulp.watch('css/*.scss', ['styles']);
+  gulp.watch('scripts/*.js', ['scripts']);
+  gulp.watch('templates/*.html', ['templates']);
+  gulp.watch('posts/**/*.md', ['markdown', 'create-json-blob']);
   gulp.watch('*.html', notifyLiveReload);
   gulp.watch('build/css/*.css', notifyLiveReload);
+  gulp.watch('build/scripts/*.js', notifyLiveReload);
+  gulp.watch('build/posts/json/*.*', notifyLiveReload);
 });
+
+// Copy silly handlebars to use script tag
+gulp.task('copy', function(){
+  gulp.src('node_modules/handlebars/dist/handlebars.runtime.js')
+    .pipe(gulp.dest('build/scripts/'));
+  gulp.src('node_modules/backbone/backbone-min.js')
+    .pipe(gulp.dest('build/scripts/'));
+  gulp.src('node_modules/underscore/underscore-min.js')
+    .pipe(gulp.dest('build/scripts/'));
+});
+
 
 
 // Run all
 //=============================================================================
-gulp.task('default', ['express', 'styles', 'express', 'livereload', 'watch'], function() {
+gulp.task('default', ['templates', 'scripts', 'express', 'styles', 'express', 'livereload', 'watch'], function() {
 
 });

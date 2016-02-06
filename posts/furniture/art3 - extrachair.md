@@ -1,0 +1,5 @@
+# Extra Chair
+
+The Extra chair is the result of a school project where I was assigned the task to design and make an extra chair. The material I was allowed to use was very limited: 1 plank of pine wood (200 x 17,5 x 2,5 cm), 1 steel pipe (18 mm in diameter, 100 cm long), 1 steel pipe (13 mm in diameter, 50 cm long) and one sheet of steel (1 mm thick, 25 x 50 cm).
+
+So what is an extra chair? Does it have to have an extra function? Should it be foldable so you can stow it away? Early in the process I decided that I wanted to experiment with shape, and in some way let the design itself give the chair its extra element. I decided to work with the actual letters in the word EXTRA. I wanted to see if they in some way could form the profile of a chair. The result is a light and sleek, but under the circumstances both stable and comfortable chair. In the profile you can find the letters E, X, T, R and A.

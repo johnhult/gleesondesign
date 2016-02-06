@@ -1,0 +1,5 @@
+# Frame Table
+
+The Frame table is a simple but sophisticated coffee table. Its classic cubic design gives it a light and well proportioned feel. Made from hollow steel and birch plywood, the table is light but stable. High quality powder coating and three layers of varnish provides an extremely durable finish. As well as working on its own, the Frame table can be combined in groups to create larger surfaces.
+
+The thin steel frame holds the wooden table-top, keeping it in place with triangular corner supports, instead of having it rest on top. This gives the table a very clean profile, and when viewed from above, the visible steel elegantly frames the wood.

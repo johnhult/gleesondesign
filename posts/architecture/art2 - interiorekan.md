@@ -1,0 +1,5 @@
+# Interior Design at Ekan Management
+
+The project was assigned to Christopher together with Josefin Boman, master student in Marketing and Consumption at the School of Economics at the University of Gothenburg. They got the assignment through Miljöbron, a company that works to highlight good environmental work and to connect students with the industry. The project was done at Ekan Management, a management consulting firm with offices in central Gothenburg. 
+
+Ekan are certified and work to be environmentally responsible, but they want to develop and make their environmental work more visible, both to employees and customers. During the project, Christopher and Josefin presented a way of making this happen with relatively small means. The proposal included both practical solutions on how to make the sorting at the office both clearer and simpler, and examples of how the design of the office can make the environment and sustainability more present. Hopefully these relatively small changes affect employees and customers, both consciously and unconsciously, and make environmental awareness a natural part of their everyday lives.

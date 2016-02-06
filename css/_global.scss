@@ -1,0 +1,165 @@
+.hamburger-wrapper {
+	transition: 0.4s;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	z-index: 5;
+	border-radius: 50px;
+}
+.hamburger-wrapper:hover {
+	background-color: rgba(black, 0.5);
+	.hamburger-menu {
+		background-color: $accent-color;
+	}
+	.hamburger-menu::before {
+		background-color: $accent-color;
+	}
+	.hamburger-menu::after {
+		background-color: $accent-color;
+	}
+}
+.hamburger-menu {
+	transition: 0.4s;
+	position: relative;
+	width: 30px;
+	height: 5px;
+	border-radius: 4px;
+	background-color: $accent-color;
+}
+.hamburger-menu::before {
+	content: '';
+	transition: 0.4s;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	background-color: $accent-color;
+	top: -10px;
+}
+.hamburger-menu::after {
+	content: '';
+	transition: 0.4s;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	background-color: $accent-color;
+	top: 10px;
+}
+
+.all-content {
+	perspective: 1000px;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+}
+
+.outer-wrapper {
+    position: relative;
+    left: 0;
+    z-index: 3;
+    height: 100%;
+    perspective: 1000px;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transform: translate3d(0,0,0) rotate3d(0,0,0,0) scale3d(1,1,1);
+    transform-origin: 100% 50%;
+}
+
+.main-content {
+	transition: 0.4s;
+	position: relative;
+    overflow-y: scroll;
+    height: 100%;
+    z-index: 0;
+}
+
+.menu-open {
+	.outer-wrapper {
+		opacity: 0;
+    	@media screen and (min-width: 400px) {
+			opacity: 1;
+    		transform: translate3d(20%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+    	}
+    	@media screen and (min-width: 800px) {
+			opacity: 1;
+    		transform: translate3d(10%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+    	}
+    	@media screen and (min-width: 1000px) {
+			opacity: 1;
+    		transform: translate3d(0%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
+    	}
+	}
+	.main-content {
+		box-shadow: 5px 5px 30px 0px rgba(black,0.2);
+		cursor: pointer;
+	}
+	.main-content:hover {
+		box-shadow: 5px 5px 30px 0px rgba($accent-color,0.4);
+	}
+	.hamburger-menu {
+		transform: rotate(225deg);
+	}
+	.hamburger-menu::after {
+		top: 0;
+		transform: rotate(90deg);
+	}
+	.hamburger-menu::before {
+		top: 0;
+		transform: rotate(90deg);
+	}
+	.hidden-menu {
+		transition: opacity 0.6s, transform 0.5s, visibility 0s;
+		opacity: 1;
+    	visibility: visible;
+    	transform: translate3d(0, 0, 0);
+	}
+}
+
+.hidden-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3efe0;
+    z-index: 4;
+    visibility: hidden;
+    width: 400px;
+    max-width: 100%;
+    background-color: white;
+    height: 100%;
+    transition: transform 0.5s, opacity 0.2s, visibility 0.2s;
+    transform: translate3d(-100%, 0, 0);
+	opacity: 0;
+	font-size: 2.6rem;
+	line-height: 2em;
+	font-family: Cinzel;
+
+	.svg {
+		margin-right: 30px;
+		vertical-align: middle;
+		width: 60px;
+		height: 60px;
+		visibility: none;
+		* {
+			fill: $accent-color;
+		}
+	}
+	li {
+		padding: 20px 0;
+	}
+	a {
+		transition: 0.4s;
+	}
+	a:hover {
+		color: $accent-color;
+	}
+}
