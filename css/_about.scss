@@ -1,0 +1,38 @@
+.about-main {
+	text-align: center;
+	padding: 100px 10px 0;
+
+	.image-holder {
+		margin: 0 auto;
+		width: 200px;
+		height: 200px;
+		border-radius: 1000px;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;	
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+	.welcome-phrase {
+		font-size: 4rem;
+		margin-bottom: 20px;
+	}
+	.intro-subheader {
+		font-size: 1.8rem;
+		font-family: Raleway;
+		margin-bottom: 20px;
+	}
+	.about-text {
+		margin: 0 auto;
+		width: 400px;
+		max-width: 100%;
+		font-size: 1.4rem;
+		p {
+			margin-bottom: 20px;
+		}
+	}
+}

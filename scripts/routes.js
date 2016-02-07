@@ -29,6 +29,7 @@ var Workspace = Backbone.Router.extend({
 			});
 		}
 
+		activateFrnScroll();
 		switchHover();
 	},
 
@@ -45,7 +46,8 @@ var Workspace = Backbone.Router.extend({
 				headerOffset.arc.push($(value).offset().top);
 			});
 		}
-		
+
+		activateArcScroll();
 		switchHover();
 	},
 

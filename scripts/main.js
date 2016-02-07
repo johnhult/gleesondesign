@@ -36,50 +36,21 @@ $('document').ready(function() {
 	new Workspace();
 	Backbone.history.start();
 
-
-	$('.main-content').scroll(function() {
-		var scrollNr = $(this).scrollTop();
-		var h = ($(window).height()/2);
-
-		if (activePage == 'frn') {
-			switch (true) {
-				case (scrollNr < (headerOffset.frn[1] - h)) :
-					$('.image-content').removeClass('shown-img');
-					$('.art1-image-content').addClass('shown-img');
-					currentArtImgClass.frn = furnArtImg.art1;
-					switchHover();
-					break;
-				case (scrollNr > (headerOffset.frn[1] - h) && scrollNr < (headerOffset.frn[2] - h)) :
-					$('.image-content').removeClass('shown-img');
-					$('.art2-image-content').addClass('shown-img');
-					currentArtImgClass.frn = furnArtImg.art2;
-					switchHover();
-					break;
-				case (scrollNr > (headerOffset.frn[2] - h) && scrollNr < (headerOffset.frn[3] - h)) :
-					$('.image-content').removeClass('shown-img');
-					$('.art3-image-content').addClass('shown-img');
-					currentArtImgClass.frn = furnArtImg.art3;
-					switchHover();
-					break;
-				case (scrollNr > (headerOffset.frn[3] - h)) :
-					$('.image-content').removeClass('shown-img');
-					$('.art4-image-content').addClass('shown-img');
-					currentArtImgClass.frn = furnArtImg.art4;
-					switchHover();
-					break;
-			}
-		}
-	});
-
 });
 
 var furnArtImg = {
 	art1: {currentPic: 1, maxPic: 4, artNr: 'art1', project: 'openarch', artImgClass: '.art1-image-content'},
 	art2: {currentPic: 1, maxPic: 5, artNr: 'art2', project: 'frametable', artImgClass: '.art2-image-content'},
-	art3: {currentPic: 1, maxPic: 1, artNr: 'art3', project: 'extrachair', artImgClass: '.art3-image-content'},
+	art3: {currentPic: 1, maxPic: 4, artNr: 'art3', project: 'extrachair', artImgClass: '.art3-image-content'},
 	art4: {currentPic: 1, maxPic: 3, artNr: 'art4', project: 'hangle', artImgClass: '.art4-image-content'}
 };
-var currentArtImgClass = {frn: furnArtImg.art1, arc: '.art1-image-content'};
+var arcArtImg = {
+	art1: {currentPic: 1, maxPic: 2, artNr: 'art1', project: 'room-for-reading', artImgClass: '.art1-image-content'},
+	art2: {currentPic: 1, maxPic: 2, artNr: 'art2', project: 'interior-ekan', artImgClass: '.art2-image-content'},
+	art3: {currentPic: 1, maxPic: 3, artNr: 'art3', project: 'satellit', artImgClass: '.art3-image-content'},
+	art4: {currentPic: 1, maxPic: 5, artNr: 'art4', project: 'promiseland', artImgClass: '.art4-image-content'}
+};
+var currentArtImgClass = {frn: furnArtImg.art1, arc: arcArtImg.art1};
 
 $(document).on('click', '.left-step-button, .right-step-button', function(e) {
 
@@ -112,8 +83,91 @@ function switchHover() {
 		$('.left-step-image').css({'background': 'url('+leftSrc+') no-repeat center center', 'background-size': 'cover'});
 		$('.right-step-image').css({'background': 'url('+rightSrc+') no-repeat center center', 'background-size': 'cover'});
 	}
-	
+	if (activePage == 'arc') {
+		var source;
+
+		var leftPic = currentArtImgClass.arc.currentPic - 1;
+		var rightPic = currentArtImgClass.arc.currentPic + 1;
+		if (leftPic == 0) {
+			leftPic = currentArtImgClass.arc.maxPic;
+		}		
+		if (rightPic == (currentArtImgClass.arc.maxPic + 1)) {
+			rightPic = 1;
+		}
+		leftSrc = 'img/architecture/' + currentArtImgClass.arc.project + '/' + leftPic + '.jpg';
+		rightSrc = 'img/architecture/' + currentArtImgClass.arc.project + '/' + rightPic + '.jpg';
+
+		$('.left-step-image').css({'background': 'url('+leftSrc+') no-repeat center center', 'background-size': 'cover'});
+		$('.right-step-image').css({'background': 'url('+rightSrc+') no-repeat center center', 'background-size': 'cover'});
+	}
 };
+
+function activateFrnScroll() {
+	$('.furniture-main').scroll(function() {
+		var scrollNr = $(this).scrollTop();
+		var h = ($(window).height()/2);
+
+		switch (true) {
+			case (scrollNr < (headerOffset.frn[1] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art1-image-content').addClass('shown-img');
+				currentArtImgClass.frn = furnArtImg.art1;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.frn[1] - h) && scrollNr < (headerOffset.frn[2] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art2-image-content').addClass('shown-img');
+				currentArtImgClass.frn = furnArtImg.art2;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.frn[2] - h) && scrollNr < (headerOffset.frn[3] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art3-image-content').addClass('shown-img');
+				currentArtImgClass.frn = furnArtImg.art3;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.frn[3] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art4-image-content').addClass('shown-img');
+				currentArtImgClass.frn = furnArtImg.art4;
+				switchHover();
+				break;
+		}
+	});
+}
+function activateArcScroll() {
+	$('.architecture-main').scroll(function() {
+		var scrollNr = $(this).scrollTop();
+		var h = ($(window).height()/2);
+
+		switch (true) {
+			case (scrollNr < (headerOffset.arc[1] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art1-image-content').addClass('shown-img');
+				currentArtImgClass.arc = arcArtImg.art1;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.arc[1] - h) && scrollNr < (headerOffset.arc[2] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art2-image-content').addClass('shown-img');
+				currentArtImgClass.arc = arcArtImg.art2;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.arc[2] - h) && scrollNr < (headerOffset.arc[3] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art3-image-content').addClass('shown-img');
+				currentArtImgClass.arc = arcArtImg.art3;
+				switchHover();
+				break;
+			case (scrollNr > (headerOffset.arc[3] - h)) :
+				$('.image-content').removeClass('shown-img');
+				$('.art4-image-content').addClass('shown-img');
+				currentArtImgClass.arc = arcArtImg.art4;
+				switchHover();
+				break;
+		}
+	});
+}
 
 function switchImage(incDec) {
 	if (activePage == 'frn') {
@@ -129,5 +183,19 @@ function switchImage(incDec) {
 
 		src = 'img/furniture/' + currentArtImgClass.frn.project + '/' + currentArtImgClass.frn.currentPic + '.jpg';
 		$(currentArtImgClass.frn.artImgClass).css({'background': 'url('+src+') no-repeat center center', 'background-size': 'cover'});
+	}
+	if (activePage == 'arc') {
+		var source;
+		
+		currentArtImgClass.arc.currentPic = (currentArtImgClass.arc.currentPic + incDec);
+		if (currentArtImgClass.arc.currentPic == 0) {
+			currentArtImgClass.arc.currentPic = currentArtImgClass.arc.maxPic;
+		}
+		else if (currentArtImgClass.arc.currentPic == (currentArtImgClass.arc.maxPic + 1)) {
+			currentArtImgClass.arc.currentPic = 1;
+		}
+
+		src = 'img/architecture/' + currentArtImgClass.arc.project + '/' + currentArtImgClass.arc.currentPic + '.jpg';
+		$(currentArtImgClass.arc.artImgClass).css({'background': 'url('+src+') no-repeat center center', 'background-size': 'cover'});
 	}
 };

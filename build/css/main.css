@@ -120,13 +120,13 @@ ul {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   position: relative;
-  overflow-y: scroll;
+  overflow: hidden;
   height: 100%;
   z-index: 0; }
 
 .menu-open .outer-wrapper {
   opacity: 0; }
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 600px) {
     .menu-open .outer-wrapper {
       opacity: 1;
       -webkit-transform: translate3d(20%, 0, -500px) rotate3d(0, 1, 0, -40deg) scale3d(0.9, 0.9, 0.9);
@@ -199,7 +199,9 @@ ul {
   opacity: 0;
   font-size: 2.6rem;
   line-height: 2em;
-  font-family: Cinzel; }
+  font-family: Raleway;
+  letter-spacing: 4px;
+  font-weight: 100; }
   .hidden-menu .svg {
     margin-right: 30px;
     vertical-align: middle;
@@ -226,12 +228,20 @@ ul {
   display: flex;
   overflow: hidden;
   background-color: white; }
+  @media screen and (max-width: 600px) {
+    .two-page {
+      -webkit-flex-flow: column;
+          -ms-flex-flow: column;
+              flex-flow: column; } }
   .two-page .half-two {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
     height: 100vh; }
+    @media screen and (max-width: 600px) {
+      .two-page .half-two {
+        height: 50vh; } }
   .two-page .furniture, .two-page .architecture {
     overflow: hidden;
     position: relative;
@@ -244,6 +254,9 @@ ul {
       letter-spacing: 20px;
       -webkit-transition: 0.4s;
       transition: 0.4s; }
+      @media screen and (max-width: 600px) {
+        .two-page .furniture h1, .two-page .architecture h1 {
+          font-size: 4.6rem; } }
     .two-page .furniture h2, .two-page .architecture h2 {
       -webkit-transition: 0.4s;
       transition: 0.4s;
@@ -251,12 +264,15 @@ ul {
       font-size: 1.6rem; }
   .two-page .front-header-wrapper {
     position: absolute;
-    top: 38vh;
+    top: 38%;
     z-index: 3;
     pointer-events: none;
     color: rgba(0, 0, 0, 0.6); }
   .two-page .furniture h1 {
     margin-right: -20px; }
+    @media screen and (max-width: 600px) {
+      .two-page .furniture h1 {
+        margin-right: -10px; } }
   .two-page .furniture h2 {
     margin-right: 10px; }
   .two-page .furniture .front-header-wrapper {
@@ -264,6 +280,9 @@ ul {
     right: 40px; }
   .two-page .furniture .front-header-seperator {
     margin: -10px 10px 20px 0px; }
+    @media screen and (max-width: 600px) {
+      .two-page .furniture .front-header-seperator {
+        margin: 10px 10px 20px 0px; } }
   .two-page .architecture h1 {
     margin-left: 10px; }
   .two-page .architecture h2 {
@@ -273,6 +292,9 @@ ul {
     left: 40px; }
   .two-page .architecture .front-header-seperator {
     margin: -10px 0px 20px 10px; }
+    @media screen and (max-width: 600px) {
+      .two-page .architecture .front-header-seperator {
+        margin: 10px 0px 20px 10px; } }
   .two-page .front-header-seperator {
     display: inline-block;
     border-radius: 2px;
@@ -281,6 +303,9 @@ ul {
     width: 500px;
     height: 3px;
     background-color: rgba(0, 0, 0, 0.6); }
+    @media screen and (max-width: 600px) {
+      .two-page .front-header-seperator {
+        width: 200px; } }
   .two-page .furniture:hover .front-header-wrapper, .two-page .architecture:hover .front-header-wrapper {
     color: rgba(255, 255, 255, 0.9); }
   .two-page .furniture:hover .inner-overlay-fade, .two-page .architecture:hover .inner-overlay-fade {
@@ -319,17 +344,20 @@ ul {
 
 .furniture-main, .architecture-main {
   width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
   background-color: white; }
   .furniture-main .bg-logo-wrapper, .architecture-main .bg-logo-wrapper {
-    position: fixed;
+    position: absolute;
     width: 200px;
     height: 200px;
     top: 0;
     left: 400px;
     overflow: hidden; }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
       .furniture-main .bg-logo-wrapper, .architecture-main .bg-logo-wrapper {
-        display: none; } }
+        left: initial;
+        right: 0; } }
   .furniture-main .bg-logo, .architecture-main .bg-logo {
     position: absolute;
     width: 300px;
@@ -343,28 +371,45 @@ ul {
     padding: 140px 40px 20px 40px;
     box-sizing: border-box;
     border-right: 1px solid #e6e6e6; }
+    @media screen and (max-width: 800px) {
+      .furniture-main .left-sidebar, .architecture-main .left-sidebar {
+        width: 100%; } }
     .furniture-main .left-sidebar h1, .architecture-main .left-sidebar h1 {
       font-size: 3.6rem;
       color: #606060;
       text-transform: uppercase; }
+      @media screen and (max-width: 600px) {
+        .furniture-main .left-sidebar h1, .architecture-main .left-sidebar h1 {
+          font-size: 2.4rem; } }
     .furniture-main .left-sidebar p, .architecture-main .left-sidebar p {
       font-size: 1.6rem;
       line-height: 1.6em;
       letter-spacing: 2px;
       margin-bottom: 30px; }
+      @media screen and (max-width: 600px) {
+        .furniture-main .left-sidebar p, .architecture-main .left-sidebar p {
+          font-size: 1.2rem; } }
   .furniture-main .article-seperator, .architecture-main .article-seperator {
     height: 2px;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 80%;
     background-color: #FFC639; }
+  .furniture-main .chair-or-stuff, .architecture-main .chair-or-stuff {
+    margin-bottom: 340px; }
   .furniture-main .image-preview, .architecture-main .image-preview {
     pointer-events: none;
-    position: fixed;
+    position: absolute;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    z-index: 100;
     right: 0;
     top: 0;
     bottom: 0;
     width: calc(100vw - 600px); }
+    @media screen and (max-width: 800px) {
+      .furniture-main .image-preview, .architecture-main .image-preview {
+        display: none; } }
   .furniture-main .art-image, .architecture-main .art-image {
     position: absolute;
     width: 100%;
@@ -392,6 +437,18 @@ ul {
   .furniture-main .furniture-images .art4-image-content, .architecture-main .furniture-images .art4-image-content {
     background: url(/img/furniture/hangle/1.jpg) no-repeat center center;
     background-size: cover; }
+  .furniture-main .architecture-images .art1-image-content, .architecture-main .architecture-images .art1-image-content {
+    background: url(/img/architecture/room-for-reading/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .architecture-images .art2-image-content, .architecture-main .architecture-images .art2-image-content {
+    background: url(/img/architecture/interior-ekan/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .architecture-images .art3-image-content, .architecture-main .architecture-images .art3-image-content {
+    background: url(/img/architecture/satellit/1.jpg) no-repeat center center;
+    background-size: cover; }
+  .furniture-main .architecture-images .art4-image-content, .architecture-main .architecture-images .art4-image-content {
+    background: url(/img/architecture/promiseland/1.jpg) no-repeat center center;
+    background-size: cover; }
   .furniture-main .show-image-article, .architecture-main .show-image-article {
     opacity: 1; }
   .furniture-main .left-step-wrapper, .architecture-main .left-step-wrapper {
@@ -418,6 +475,7 @@ ul {
     width: 60px;
     height: 60px;
     border: 3px solid #FFC639;
+    background-color: white;
     cursor: pointer;
     pointer-events: initial;
     display: -webkit-box;
@@ -489,5 +547,43 @@ ul {
       opacity: 1;
       -webkit-transform: translateX(-80px) scale(1.4);
               transform: translateX(-80px) scale(1.4); }
-  .furniture-main .chair-or-stuff, .architecture-main .chair-or-stuff {
-    margin-bottom: 300px; }
+
+.about-main {
+  text-align: center;
+  padding: 100px 10px 0; }
+  .about-main .image-holder {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px; }
+    .about-main .image-holder img {
+      height: 100%;
+      width: auto; }
+  .about-main .welcome-phrase {
+    font-size: 4rem;
+    margin-bottom: 20px; }
+  .about-main .intro-subheader {
+    font-size: 1.8rem;
+    font-family: Raleway;
+    margin-bottom: 20px; }
+  .about-main .about-text {
+    margin: 0 auto;
+    width: 400px;
+    max-width: 100%;
+    font-size: 1.4rem; }
+    .about-main .about-text p {
+      margin-bottom: 20px; }

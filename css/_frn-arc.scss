@@ -1,18 +1,26 @@
 $side-width: 600px;
 .furniture-main, .architecture-main {
 	width: 100vw;
+	height: 100vh;
+	overflow-y: scroll;
 	background-color: white;
+	// transform: translateZ(0);
+	// z-index: 1;
 
 	.bg-logo-wrapper {
-		position: fixed;
+		position: absolute;
+		// transform: translateZ(0);
 		width: 200px;
 		height: 200px;
 		top: 0;
 		left: 400px;
 		overflow: hidden;
-		@media screen and (max-width: 600px) {
-			display: none;
+		// z-index: 1;
+		@media screen and (max-width: 800px) {
+			left: initial;
+			right: 0;
 		}
+
 	}
 	.bg-logo {
 		position: absolute;
@@ -30,17 +38,26 @@ $side-width: 600px;
 		padding: 140px 40px 20px 40px;
 		box-sizing: border-box;
 		border-right: 1px solid darken(white, 10%);
+		@media screen and (max-width: 800px) {
+			width: 100%;
+		}
 
 		h1 {
 			font-size: 3.6rem;
 			color: #606060;
 			text-transform: uppercase;
+			@media screen and (max-width: 600px) {
+				font-size: 2.4rem;
+			}
 		}
 		p {
 			font-size: 1.6rem;
 			line-height: 1.6em;
 			letter-spacing: 2px;
 			margin-bottom: 30px;
+			@media screen and (max-width: 600px) {
+				font-size: 1.2rem;
+			}
 		}
 	}
 
@@ -53,13 +70,22 @@ $side-width: 600px;
 
 	}
 
+	.chair-or-stuff {
+		margin-bottom: 340px;
+	}
+
 	.image-preview {
 		pointer-events: none;
-		position: fixed;
+		position: absolute;
+		transform: translateZ(0);
+		z-index: 100;
 		right: 0;
 		top: 0;
 		bottom: 0;
 		width: calc(100vw - #{$side-width});
+		@media screen and (max-width: 800px) {
+			display: none;
+		}
 	}
 
 	.art-image {
@@ -97,6 +123,24 @@ $side-width: 600px;
 			background-size: cover;
 		}
 	}
+	.architecture-images {
+		.art1-image-content {
+			background: url(/img/architecture/room-for-reading/1.jpg) no-repeat center center;
+			background-size: cover;
+		}
+		.art2-image-content {
+			background: url(/img/architecture/interior-ekan/1.jpg) no-repeat center center;
+			background-size: cover;
+		}
+		.art3-image-content {
+			background: url(/img/architecture/satellit/1.jpg) no-repeat center center;
+			background-size: cover;
+		}
+		.art4-image-content {
+			background: url(/img/architecture/promiseland/1.jpg) no-repeat center center;
+			background-size: cover;
+		}
+	}
 	.show-image-article {
 		opacity: 1;
 	}
@@ -118,6 +162,7 @@ $side-width: 600px;
 		width: 60px;
 		height: 60px;
 		border: 3px solid $accent-color;
+		background-color: white;
 		cursor: pointer;
 		pointer-events: initial;
 		display: flex;
@@ -182,11 +227,6 @@ $side-width: 600px;
 			opacity: 1;
 			transform: translateX(-80px) scale(1.4);
 		}
-	}
-
-
-	.chair-or-stuff {
-		margin-bottom: 300px;
 	}
 }
 
